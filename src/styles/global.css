@@ -503,3 +503,14 @@ a.bk{text-decoration:none}
 .fsub .err{color:#B42318;font-weight:600;font-size:.95rem}
 .skip{position:absolute;left:-999px;top:8px;z-index:100;background:#fff;color:var(--ink);padding:10px 16px;border-radius:999px;font-weight:600}
 .skip:focus{left:16px}
+
+/* official logo */
+.brand .lg{display:block;height:54px;width:auto;max-width:none}
+.brand .lg-c{display:none}
+header.solid .brand .lg-w{display:none}
+header.solid .brand .lg-c{display:block}
+header.menu .brand .lg-w{display:block}
+header.menu .brand .lg-c{display:none}
+footer .brand .lg{height:64px}
+.wipe .wt img{width:.9em;height:auto;animation:spin 1.6s linear infinite}
+@media (max-width:600px){.brand .lg{height:42px}}
