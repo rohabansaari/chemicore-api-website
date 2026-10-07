@@ -134,7 +134,7 @@ let lastStep = -1, ticking = false;
 function onScroll() {
   ticking = false;
   const y = scrollY, H = root.scrollHeight - innerHeight;
-  hdr.classList.toggle('solid', y > 30);
+  hdr.classList.toggle('scrolled', y > 30);
   prog.style.transform = `scaleX(${H > 0 ? Math.min(1, y / H) : 0})`;
   if (lat && !RM) lat.style.translate = `0 ${Math.min(y, 1200) * 0.3}px`;
   if (steps) {

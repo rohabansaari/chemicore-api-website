@@ -5,7 +5,7 @@
   --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.2,.75,.1,1); --ease-io:cubic-bezier(.75,0,.2,1);
-  --hh:76px; color-scheme:light;
+  --hh:84px; color-scheme:light;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -505,7 +505,7 @@ a.bk{text-decoration:none}
 .skip:focus{left:16px}
 
 /* official logo */
-.brand .lg{display:block;height:54px;width:auto;max-width:none}
+.brand .lg{display:block;height:62px;width:auto;max-width:none}
 .brand .lg-c{display:none}
 header.solid .brand .lg-w{display:none}
 header.solid .brand .lg-c{display:block}
@@ -513,4 +513,8 @@ header.menu .brand .lg-w{display:block}
 header.menu .brand .lg-c{display:none}
 footer .brand .lg{height:64px}
 .wipe .wt img{width:.9em;height:auto;animation:spin 1.6s linear infinite}
-@media (max-width:600px){.brand .lg{height:42px}}
+@media (max-width:600px){.brand .lg{height:46px}}
+
+/* header is always white so the logo shows in its original colours */
+header.site.solid{background:#fff;box-shadow:0 1px 0 var(--line)}
+header.site.solid.scrolled{box-shadow:0 1px 0 var(--line),0 10px 30px -18px rgba(0,33,86,.35)}
