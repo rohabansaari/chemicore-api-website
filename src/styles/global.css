@@ -9,6 +9,8 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+html,body{margin:0;padding:0}
+img{max-width:100%}
 html{scroll-behavior:auto}
 body{background:var(--paper);color:var(--ink);font:400 15.5px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
