@@ -392,7 +392,7 @@ if (root.classList.contains('wiping')) {
 /* ---------- stats count-up: steps 1, 2, 3 … every time the band enters view ---------- */
 const counts = $$('.count[data-to]');
 if (counts.length) {
-  const DUR = 2200; // every counter finishes together
+  const DUR = 1000; // every counter finishes together
   const timers = new Map();
   const card = (el) => el.closest('.stat');
   const reset = (el) => {
