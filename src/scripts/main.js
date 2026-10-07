@@ -388,3 +388,22 @@ if (root.classList.contains('wiping')) {
     start();
   }));
 } else start();
+
+/* ---------- stats count-up ---------- */
+const counts = $$('.count[data-to]');
+if (counts.length && !RM) {
+  const run = (el) => {
+    const to = +el.dataset.to, t0 = performance.now(), dur = 1600;
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(to * e).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  counts.forEach((el) => { el.textContent = '0'; });
+  const cio = new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting) { run(e.target); cio.unobserve(e.target); }
+  }), { threshold: 0.6 });
+  counts.forEach((el) => cio.observe(el));
+}

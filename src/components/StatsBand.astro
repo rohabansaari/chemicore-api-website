@@ -1,0 +1,13 @@
+---
+import { stats } from '../data/site';
+---
+<section class="stats" aria-label="Chemi-Core API in numbers">
+  <div class="wrap stats-in">
+    {stats.map((s, i) => (
+      <div class="stat" data-r style={`--rd:${i * 120}ms`}>
+        <span class="num"><span class="count" data-to={s.value}>{s.value}</span>{s.suffix}</span>
+        <span class="lbl">{s.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
