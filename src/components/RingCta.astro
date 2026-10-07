@@ -1,0 +1,13 @@
+---
+interface Props { title: string; ring: string; href?: string; label?: string }
+const { title, ring, href = '/contact/', label = 'Contact us' } = Astro.props;
+---
+<section class="sec bigcta">
+  <div class="wrap">
+    <h2 data-r>{title}</h2>
+    <a class="ring mag" href={href} aria-label={label} data-r style="--rd:150ms">
+      <svg class="txt" viewBox="0 0 190 190" aria-hidden="true"><text><textPath href="#cp">{`${ring} · ${ring} · `}</textPath></text></svg>
+      <span class="core"><svg><use href="#arr" /></svg></span>
+    </a>
+  </div>
+</section>

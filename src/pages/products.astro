@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import { products } from '../data/products';
+const cats = [
+  { key: 'all', label: 'All' },
+  { key: 'API', label: 'APIs' },
+  { key: 'Excipient', label: 'Excipients' },
+  { key: 'Packaging', label: 'Packaging' },
+];
+---
+<Base title="Material catalogue" description="APIs, excipients and pharmaceutical packaging sourced by Chemi-Core API. Search by name or CAS number and add materials to one enquiry." page="products">
+  <section class="ph navy">
+    <div class="lat"><svg><rect width="100%" height="100%" fill="url(#hx)" /></svg></div>
+    <div class="wrap">
+      <div class="crumb fi"><a href="/">Home</a><span>/</span><span>Products</span></div>
+      <h1 class="split">Material catalogue.</h1>
+      <p class="lead fi" style="--d:450ms">Add materials to your enquiry with <b style="color:#fff">+</b>, then send them all in one request. Can’t find your grade? Send us the specification.</p>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:clamp(48px,6vw,72px)">
+    <div class="wrap">
+      <div class="tools" data-r>
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+          <input id="q" type="search" placeholder="Search by name or CAS number" aria-label="Search materials" />
+        </label>
+        <div class="pills" id="pills" role="group" aria-label="Filter by category">
+          <span class="ind" id="ind"></span>
+          {cats.map((c, i) => <button type="button" data-cat={c.key} aria-pressed={i === 0 ? 'true' : 'false'}>{c.label}</button>)}
+        </div>
+      </div>
+      <div class="plist">
+        <div class="prow hd"><span>Material</span><span>Category</span><span>CAS no.</span><span>Grades</span><span>Use</span><span></span></div>
+        <div id="rows">
+          {products.map((p) => (
+            <div class="prow" data-cat={p.category} data-search={`${p.name} ${p.cas ?? ''}`.toLowerCase()}>
+              <span class="nm">{p.name}</span>
+              <span><span class={`chip ${p.category}`}>{p.category}</span></span>
+              <span class="cas">{p.cas ? `CAS ${p.cas}` : '—'}</span>
+              <span class="gr">{p.grades}</span>
+              <span class="use">{p.use}</span>
+              <button type="button" class="add" data-n={p.name} aria-pressed="false" aria-label={`Add ${p.name} to enquiry`}>
+                <svg viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+              </button>
+            </div>
+          ))}
+          <div class="empty" id="empty" hidden>Nothing matches your search. <a href="/contact/">Send us the specification</a> and we will source it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec bigcta">
+    <div class="wrap">
+      <h2 data-r>Can’t find your grade?</h2>
+      <a class="ring mag" href="/contact/" aria-label="Send a specification" data-r style="--rd:150ms">
+        <svg class="txt" viewBox="0 0 190 190" aria-hidden="true"><text><textPath href="#cp">SEND A SPECIFICATION · SEND A SPECIFICATION · </textPath></text></svg>
+        <span class="core"><svg><use href="#arr" /></svg></span>
+      </a>
+    </div>
+  </section>
+</Base>

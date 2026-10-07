@@ -1,0 +1,21 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="/"><svg><use href="#logo" /></svg><b>CHEMI‑CORE API</b></a>
+        <p style="max-width:34ch">Sourcing APIs, excipients and packaging for pharmaceutical manufacturers across Pakistan.</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/mission/">Mission</a></li><li><a href="/services/">Services</a></li></ul></div>
+      <div><h4>Materials</h4><ul><li><a href="/products/?c=API">APIs</a></li><li><a href="/products/?c=Excipient">Excipients</a></li><li><a href="/products/?c=Packaging">Packaging</a></li></ul></div>
+      <div><h4>Office</h4><ul>{site.address.map((l) => <li>{l}</li>)}<li><a href={`tel:${site.phoneRaw}`}>{site.phone}</a></li><li><a href={`mailto:${site.email}`}>{site.email}</a></li></ul></div>
+    </div>
+    <div class="giant" aria-hidden="true">CHEMI‑CORE</div>
+  </div>
+  <div class="legal">
+    <div class="wrap legal-in"><span>© {year} Chemi-Core API. All rights reserved.</span><span>Proudly serving all of Pakistan</span></div>
+  </div>
+</footer>

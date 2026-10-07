@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import ZoomControls from '../components/ZoomControls.astro';
+---
+<Base title="Contact" description="Send Chemi-Core API your material requirement. Office 1107, Grand Square Mall, Gulberg III, Lahore. Phone and WhatsApp +92 326 0833256." page="contact">
+  <section class="ph navy">
+    <div class="lat"><svg><rect width="100%" height="100%" fill="url(#hx)"/></svg></div>
+    <div class="wrap">
+      <div class="crumb fi"><a href="/">Home</a><span>/</span><span>Contact</span></div>
+      <h1 class="split">Tell us what you need.</h1>
+      <p class="lead fi" style="--d:450ms">Share the material, grade and quantity. We reply with sourcing options and a quotation.</p>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:clamp(48px,6vw,80px)">
+    <div class="wrap cgrid">
+      <form class="enquiry" id="f" data-r>
+        <div class="fl"><input id="fn" name="fn" placeholder=" " required autocomplete="given-name"><label for="fn">First name *</label></div>
+        <div class="fl"><input id="ln" name="ln" placeholder=" " required autocomplete="family-name"><label for="ln">Last name *</label></div>
+        <div class="fl"><input id="co" name="co" placeholder=" " autocomplete="organization"><label for="co">Company</label></div>
+        <div class="fl"><input id="em" name="em" type="email" inputmode="email" placeholder=" " required autocomplete="email"><label for="em">Email *</label></div>
+        <div class="fl sel"><select id="cat" name="cat"><option>Active pharmaceutical ingredient</option><option>Excipient</option><option>Packaging component</option><option>Not sure yet</option></select><label for="cat">Category</label></div>
+        <div class="fl"><input id="qty" name="qty" placeholder=" "><label for="qty">Estimated quantity</label></div>
+        <div class="picked" id="picked" hidden><small>Materials in this enquiry</small><div id="pickl"></div></div>
+        <div class="fl full"><textarea id="msg" name="msg" placeholder=" " required></textarea><label for="msg">Material, grade (BP/USP/EP), CAS no. and delivery date *</label></div>
+        <div class="fsub"><span class="ok" id="ok" role="status"></span><button class="btn b-blue mag" type="submit" id="sb">Send enquiry <svg class="ar"><use href="#arr"/></svg></button></div>
+      </form>
+      <div class="info">
+        <div class="ci" data-r><span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Phone / WhatsApp</small><a href="tel:+923260833256">+92 326 0833256</a></div><button class="copy" type="button" data-copy="+923260833256">Copy</button></div>
+        <div class="ci" data-r style="--rd:70ms"><span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><div><small>Email</small><a href="mailto:info@chemicoreapi.com">info@chemicoreapi.com</a></div><button class="copy" type="button" data-copy="info@chemicoreapi.com">Copy</button></div>
+        <div class="ci" data-r style="--rd:140ms"><span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A6.5 5.5 0 1 1 15 9"/><path d="M15 9a5.5 4.7 0 1 1-2.4 9l-2.6 1 .7-2.2A4.6 4.6 0 0 1 15 9z"/></svg></span><div><small>WeChat</small><span>wxid_pitpe48w9owi22</span></div><button class="copy" type="button" data-copy="wxid_pitpe48w9owi22">Copy</button></div>
+        <div class="map" data-r style="--rd:200ms"><div class="zwrap" style="border-radius:0"><ZoomControls />
+          <svg viewBox="0 0 520 250" role="img" aria-label="Location: Grand Square Mall, Gulberg III, Lahore">
+            <path class="rd2" pathLength="1" d="M-10 60H530M-10 200H530M70 -10V260M340 -10V260M440 -10V260"/>
+            <path class="rd" pathLength="1" d="M-10 170C130 160 240 135 530 75"/>
+            <path class="rd" pathLength="1" d="M160 -10C180 90 210 160 250 260"/>
+            <path class="cn" pathLength="1" d="M490 -10C440 90 410 160 370 260"/>
+            <text class="lb" x="300" y="28">CANAL BANK RD</text><text class="lb" x="16" y="152">MAIN BLVD GULBERG</text>
+            <circle class="pr" cx="232" cy="126" r="22"/><circle class="pc" cx="232" cy="126" r="11"/><circle class="pd" cx="232" cy="126" r="5"/>
+            <text class="lt" x="254" y="112">Grand Square Mall</text><text class="lb" x="254" y="130">OFFICE 1107 · 11TH FLOOR</text>
+          </svg></div>
+          <div class="bar"><span>Gulberg III, Lahore, Pakistan</span><a class="btn b-white sm" href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Square+Mall+Gulberg+III+Lahore" target="_blank" rel="noopener">Open in Maps <svg class="ar"><use href="#arr"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec ice">
+    <div class="wrap faqg">
+      <div style="display:grid;gap:18px;align-content:start"><h2 data-r>Questions buyers ask.</h2><p class="muted" data-r style="--rd:100ms;font-size:.98rem;max-width:34ch">Something else? Message us on WhatsApp and the sourcing team will answer directly.</p></div>
+      <div class="acc faq">
+        <div class="acc-i open" data-r><button class="acc-h" type="button" aria-expanded="true"><span class="acc-t">Which materials can you source?</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div><div class="acc-in"><p>Active pharmaceutical ingredients, excipients and primary packaging components. If a material isn’t in our catalogue, send the specification and we will look for a qualified manufacturer.</p></div></div></div></div>
+        <div class="acc-i" data-r style="--rd:60ms"><button class="acc-h" type="button" aria-expanded="false"><span class="acc-t">Do you prepare the DRAP documentation?</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div><div class="acc-in"><p>Yes. We prepare and check the import documentation so it is aligned with DRAP requirements before the material ships.</p></div></div></div></div>
+        <div class="acc-i" data-r style="--rd:120ms"><button class="acc-h" type="button" aria-expanded="false"><span class="acc-t">What documents come with a shipment?</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div><div class="acc-in"><p>Typically the Certificate of Analysis, GMP certificate, the open part of the DMF, MSDS, commercial invoice, packing list, certificate of origin and bill of lading or air waybill.</p></div></div></div></div>
+        <div class="acc-i" data-r style="--rd:180ms"><button class="acc-h" type="button" aria-expanded="false"><span class="acc-t">Can you supply trial or small quantities?</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div><div class="acc-in"><p>Tell us the quantity you need. We confirm the minimum order with the manufacturer and suggest the most practical option, including samples for evaluation.</p></div></div></div></div>
+        <div class="acc-i" data-r style="--rd:240ms"><button class="acc-h" type="button" aria-expanded="false"><span class="acc-t">How do I get a quotation fastest?</span><span class="acc-x" aria-hidden="true"></span></button><div class="acc-p"><div><div class="acc-in"><p>Send the material name, grade (BP, USP or EP), quantity and required delivery date through the form or on WhatsApp.</p></div></div></div></div>
+      </div>
+    </div>
+  </section>
+</Base>

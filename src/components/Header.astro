@@ -1,0 +1,20 @@
+---
+import { nav, site, type PageKey } from '../data/site';
+interface Props { page: PageKey }
+const { page } = Astro.props;
+---
+<header class="site" id="hdr">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Chemi-Core API home"><svg><use href="#logo" /></svg><b>CHEMI‑CORE API</b></a>
+    <nav class="nl" aria-label="Main">
+      {nav.map((n) => <a href={n.href} aria-current={n.key === page ? 'page' : undefined}>{n.label}</a>)}
+    </nav>
+    <a class="bk" href="/contact/" aria-label="Open enquiry list"><span>Enquiry</span><b>0</b></a>
+    <a class="btn b-white sm hcta mag" href="/contact/">Request a quote</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i></button>
+    <nav class="mnav" aria-label="Mobile">
+      {nav.map((n, i) => <a href={n.href} style={`--i:${i}`}>{n.label}</a>)}
+      <p>{site.phone} · {site.email}</p>
+    </nav>
+  </div>
+</header>
