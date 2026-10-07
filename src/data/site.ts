@@ -22,7 +22,7 @@ export type PageKey = (typeof nav)[number]['key'] | 'none';
 
 // Headline figures shown in the stats band on the home page.
 export const stats = [
-  { value: 50, suffix: '+', label: 'Customers served' },
-  { value: 300, suffix: '+', label: 'Products in our range' },
-  { value: 40, suffix: '+', label: 'Supplier partners' },
+  { value: 50, suffix: '+', label: 'Customers served', icon: 'clients' },
+  { value: 300, suffix: '+', label: 'Products in our range', icon: 'flask' },
+  { value: 40, suffix: '+', label: 'Supplier partners', icon: 'globe' },
 ];

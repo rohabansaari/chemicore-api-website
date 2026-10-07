@@ -1,13 +1,26 @@
 ---
 import { stats } from '../data/site';
+const icons: Record<string, string> = {
+  clients: '<path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="7.5" r="3.5"/><path d="M20 19v-1.5a3.5 3.5 0 0 0-2.5-3.35M15 4.15a3.5 3.5 0 0 1 0 6.7"/>',
+  flask: '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+};
 ---
 <section class="stats" aria-label="Chemi-Core API in numbers">
-  <div class="wrap stats-in">
-    {stats.map((s, i) => (
-      <div class="stat" data-r style={`--rd:${i * 120}ms`}>
-        <span class="num"><span class="count" data-to={s.value}>{s.value}</span>{s.suffix}</span>
-        <span class="lbl">{s.label}</span>
-      </div>
-    ))}
+  <div class="lat"><svg><rect width="100%" height="100%" fill="url(#hx)" /></svg></div>
+  <div class="wrap">
+    <p class="stats-k" data-r>Chemi-Core API in numbers</p>
+    <div class="stats-in">
+      {stats.map((s, i) => (
+        <div class="stat" data-r style={`--rd:${i * 120}ms`}>
+          <span class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons[s.icon]} /></span>
+          <span class="num" aria-label={`${s.value}${s.suffix}`}>
+            <span class="count" data-to={s.value} style={`min-width:${String(s.value).length}ch`} aria-hidden="true">{s.value}</span><span class="sfx" aria-hidden="true">{s.suffix}</span>
+          </span>
+          <span class="lbl">{s.label}</span>
+          <span class="bar" aria-hidden="true"><i></i></span>
+        </div>
+      ))}
+    </div>
   </div>
 </section>

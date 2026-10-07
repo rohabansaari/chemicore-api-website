@@ -389,21 +389,29 @@ if (root.classList.contains('wiping')) {
   }));
 } else start();
 
-/* ---------- stats count-up ---------- */
+/* ---------- stats count-up: steps 1, 2, 3 … every time the band enters view ---------- */
 const counts = $$('.count[data-to]');
-if (counts.length && !RM) {
-  const run = (el) => {
-    const to = +el.dataset.to, t0 = performance.now(), dur = 1600;
-    const step = (t) => {
-      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(to * e).toLocaleString();
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+if (counts.length) {
+  const DUR = 2200; // every counter finishes together
+  const timers = new Map();
+  const card = (el) => el.closest('.stat');
+  const reset = (el) => {
+    clearInterval(timers.get(el)); timers.delete(el);
+    el.textContent = '0'; card(el).classList.remove('done', 'counting'); card(el).style.setProperty('--p', 0);
   };
-  counts.forEach((el) => { el.textContent = '0'; });
-  const cio = new IntersectionObserver((es) => es.forEach((e) => {
-    if (e.isIntersecting) { run(e.target); cio.unobserve(e.target); }
-  }), { threshold: 0.6 });
-  counts.forEach((el) => cio.observe(el));
+  const run = (el) => {
+    reset(el);
+    const to = +el.dataset.to, c = card(el); let n = 0;
+    c.classList.add('counting');
+    timers.set(el, setInterval(() => {
+      n += 1; el.textContent = String(n); c.style.setProperty('--p', n / to);
+      if (n >= to) { clearInterval(timers.get(el)); timers.delete(el); c.classList.remove('counting'); c.classList.add('done'); }
+    }, Math.max(4, DUR / to)));
+  };
+  if (RM) counts.forEach((el) => { card(el).classList.add('done'); card(el).style.setProperty('--p', 1); });
+  else {
+    counts.forEach(reset);
+    const cio = new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? run(e.target) : reset(e.target))), { threshold: 0.5 });
+    counts.forEach((el) => cio.observe(el));
+  }
 }
